@@ -31,17 +31,19 @@ sudo make install
 echo "Installing Swift"
 cd /usr/share/src || exit
 
-echo "Downloading Swift 2.2"
-echo "Snapshot from 2016-02-24 swift.org"
-wget "https://swift.org/builds/swift-2.2-branch/ubuntu1404/swift-2.2-SNAPSHOT-2016-02-24-a/swift-2.2-SNAPSHOT-2016-02-24-a-ubuntu14.04.tar.gz"
-wget "https://swift.org/builds/swift-2.2-branch/ubuntu1404/swift-2.2-SNAPSHOT-2016-02-24-a/swift-2.2-SNAPSHOT-2016-02-24-a-ubuntu14.04.tar.gz.sig"
+SWIFT_VERSION="2.2"
+SWIFT_SNAPSHOT_NAME="swift-DEVELOPMENT-SNAPSHOT-2016-03-01-a-ubuntu14.04"
+echo "Downloading Swift $SWIFT_VERSION"
+wget "https://swift.org/builds/development/ubuntu1404/$SWIFT_SNAPSHOT_NAME/$SWIFT_SNAPSHOT_NAME.tar.gz"
+echo "Downloading Signature"
+wget "https://swift.org/builds/development/ubuntu1404/$SWIFT_SNAPSHOT_NAME/$SWIFT_SNAPSHOT_NAME.tar.gz.sig"
 
 echo "Getting keys"
 wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
 gpg --keyserver hkp://pool.sks-keyservers.net --refresh-keys Swift
 
 echo "Verifying Downloaded Package"
-gpg --verify swift-2.2-SNAPSHOT-2016-02-24-a-ubuntu14.04.tar.gz.sig
+gpg --verify "$SWIFT_SNAPSHOT_NAME".tar.gz.sig
 
 if [[ $? -ne 0 ]]; then
   echo "Swift installation failure - Signature failed verification"
@@ -49,11 +51,11 @@ if [[ $? -ne 0 ]]; then
 fi
 
 echo "Unpacking swift"
-tar zxf swift-2.2-SNAPSHOT-2016-02-24-a-ubuntu14.04.tar.gz 
+tar zxf "$SWIFT_SNAPSHOT_NAME".tar.gz
 echo "Cleaning up downloads"
-rm swift-2.2-SNAPSHOT-2016-02-24-a-ubuntu14.04.tar.gz
-rm swift-2.2-SNAPSHOT-2016-02-24-a-ubuntu14.04.tar.gz.sig
-mv swift-2.2-SNAPSHOT-2016-02-24-a-ubuntu14.04 swift
+rm "$SWIFT_SNAPSHOT_NAME".tar.gz
+rm "$SWIFT_SNAPSHOT_NAME".tar.gz.sig
+mv "$SWIFT_SNAPSHOT_NAME" swift
 
 ###
 # Install NodeJS
@@ -62,14 +64,15 @@ echo "Installing node.js"
 cd /usr/share/src || exit
 
 echo "Downloading NodeJS"
-wget "https://nodejs.org/dist/v4.4.0/node-v4.4.0.tar.gz"
+NODE_VERSION="v4.4.0"
+wget "https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION.tar.gz"
 
-tar zxf node-v4.4.0.tar.gz
-rm node-v4.4.0.tar.gz
-pushd node-v4.4.0
+tar zxf "$NODE_VERSION".tar.gz
+rm "$NODE_VERSION".tar.gz
+pushd node-"$NODE_VERSION"
 echo "Installing NodeJS"
 ./configure && make && sudo make install
 popd
 echo "Cleaning up after install"
-rm -r node-v4.4.0
+rm -r node-"$NODE_VERSION"
 
