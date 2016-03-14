@@ -32,11 +32,12 @@ echo "Installing Swift"
 cd /usr/share/src || exit
 
 SWIFT_VERSION="2.2"
-SWIFT_SNAPSHOT_NAME="swift-DEVELOPMENT-SNAPSHOT-2016-03-01-a-ubuntu14.04"
+SWIFT_DOWNLOAD_FOLDER="swift-DEVELOPMENT-SNAPSHOT-2016-03-01-a"
+SWIFT_SNAPSHOT_NAME="$SWIFT_DOWNLOAD_FOLDER-ubuntu14.04"
 echo "Downloading Swift $SWIFT_VERSION"
-wget "https://swift.org/builds/development/ubuntu1404/$SWIFT_SNAPSHOT_NAME/$SWIFT_SNAPSHOT_NAME.tar.gz"
+wget "https://swift.org/builds/development/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz"
 echo "Downloading Signature"
-wget "https://swift.org/builds/development/ubuntu1404/$SWIFT_SNAPSHOT_NAME/$SWIFT_SNAPSHOT_NAME.tar.gz.sig"
+wget "https://swift.org/builds/development/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz.sig"
 
 echo "Getting keys"
 wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
@@ -65,14 +66,15 @@ cd /usr/share/src || exit
 
 echo "Downloading NodeJS"
 NODE_VERSION="v4.4.0"
-wget "https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION.tar.gz"
+NODE_FILE="node-$NODE_VERSION"
+wget "https://nodejs.org/dist/$NODE_VERSION/$NODE_FILE.tar.gz"
 
-tar zxf "$NODE_VERSION".tar.gz
-rm "$NODE_VERSION".tar.gz
-pushd node-"$NODE_VERSION"
+tar zxf "$NODE_FILE".tar.gz
+rm "$NODE_FILE".tar.gz
+pushd "$NODE_FILE"
 echo "Installing NodeJS"
 ./configure && make && sudo make install
 popd
 echo "Cleaning up after install"
-rm -r node-"$NODE_VERSION"
+rm -r "$NODE_FILE"
 
