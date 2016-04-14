@@ -32,7 +32,7 @@ echo "Installing Swift"
 cd /usr/share/src || exit
 
 SWIFT_VERSION="2.2"
-SWIFT_DOWNLOAD_FOLDER="swift-DEVELOPMENT-SNAPSHOT-2016-03-01-a"
+SWIFT_DOWNLOAD_FOLDER="swift-DEVELOPMENT-SNAPSHOT-2016-03-16-a"
 SWIFT_SNAPSHOT_NAME="$SWIFT_DOWNLOAD_FOLDER-ubuntu14.04"
 echo "Downloading Swift $SWIFT_VERSION"
 wget "https://swift.org/builds/development/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz"
