@@ -31,13 +31,13 @@ sudo make install
 echo "Installing Swift"
 cd /usr/share/src || exit
 
-SWIFT_VERSION="3.0-preview-2"
 SWIFT_DOWNLOAD_FOLDER="swift-3.0-PREVIEW-2"
+SWIFT_VERSION=$(echo "$SWIFT_DOWNLOAD_FOLDER" | tr '[:upper:]' '[:lower:]')
 SWIFT_SNAPSHOT_NAME="$SWIFT_DOWNLOAD_FOLDER-ubuntu14.04"
 echo "Downloading Swift $SWIFT_VERSION"
-wget "https://swift.org/builds/$SWIFT_VERSION/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz"
+wget "https://swift.org/builds/swift-$SWIFT_VERSION/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz"
 echo "Downloading Signature"
-wget "https://swift.org/builds/$SWIFT_VERSION/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz.sig"
+wget "https://swift.org/builds/swift-$SWIFT_VERSION/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz.sig"
 
 echo "Getting keys"
 wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
