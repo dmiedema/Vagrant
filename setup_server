@@ -31,16 +31,16 @@ function _upgrade() {
 # Main Script
 ###
 case "$1" in 
-  ""|help)
-    _help
-    ;;
-
   upgrade)
     _upgrade
     ;;
 
   install)
     _install
+    ;;
+
+  *)
+    _help
     ;;
 esac
 
