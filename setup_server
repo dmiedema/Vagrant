@@ -17,7 +17,7 @@ function _help() {
 }
 
 function _install() {
-  ./vagrant-provision.sh
+  sudo ./vagrant-provision.sh
   ./install-sources.sh
   ./user-provision.sh
 }
