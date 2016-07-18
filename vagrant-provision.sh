@@ -35,5 +35,5 @@ echo "Creating /usr/share/src"
 mkdir -p /usr/share/src
 
 echo "Setting up permissions for /usr/share"
-chown -R "$USER" /usr/share/
+chown -R "$USER" /usr/share/src
 
