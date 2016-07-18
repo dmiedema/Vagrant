@@ -23,11 +23,11 @@ chsh -s "$(which zsh)"
 # VIM specific for lua support
 echo "installing VIM with lua"
 echo "Getting dependencies..."
-apt-get -y install liblua5.1-dev luajit libluajit-5.1
+apt-get -y install liblua5.2-dev luajit libluajit-5.2
 
 echo "Linking lua"
-mkdir /usr/include/lua5.1/include
-mv /usr/include/lua5.1/*.h /usr/include/lua5.1/include/
+mkdir /usr/include/lua5.2/include
+mv /usr/include/lua5.2/*.h /usr/include/lua5.2/include/
 
 # ln -s /usr/bin/luajit-2.0.* /usr/bin/luajit
 
@@ -35,5 +35,5 @@ echo "Creating /usr/share/src"
 mkdir -p /usr/share/src
 
 echo "Setting up permissions for /usr/share"
-chown -R vagrant /usr/share/
+chown -R "$USER" /usr/share/
 
