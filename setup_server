@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+### 
+# Fuctions
+###
+
+function _help() {
+  echo "
+  Usage:
+    setup_server [arguments]
+
+  Commands:
+    help     Print Help/Usage Text
+    upgrade  Upgrade an existing installation
+    install  Install everything and all dependencies
+    "
+}
+
+function _install() {
+  ./vagrant-provision.sh
+  ./install-sources.sh
+  ./user-provision.sh
+}
+
+function _upgrade() {
+  _install
+}
+
+
+###
+# Main Script
+###
+case "$1" in 
+  ""|help)
+    _help
+    ;;
+
+  upgrade)
+    _upgrade
+    ;;
+
+  install)
+    _install
+    ;;
+esac
+
+exit 0
+
