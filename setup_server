@@ -17,9 +17,10 @@ function _help() {
 }
 
 function _install() {
-  sudo ./vagrant-provision.sh
-  ./install-sources.sh
-  ./user-provision.sh
+  DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  sudo "$DIR"/vagrant-provision.sh
+  "$DIR"/install-sources.sh
+  "$DIR"/user-provision.sh
 }
 
 function _upgrade() {
