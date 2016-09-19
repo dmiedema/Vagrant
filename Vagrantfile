@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.provision :shell, path: "https://raw.githubusercontent.com/dmiedema/Vagrant/master/vagrant-provision.sh", keep_color: true
   config.vm.provision :shell, path: "https://raw.githubusercontent.com/dmiedema/Vagrant/master/install-sources.sh", privileged: false, keep_color: true
   config.vm.provision :shell, path: "https://raw.githubusercontent.com/dmiedema/Vagrant/master/user-provision.sh", privileged: false, keep_color: true
