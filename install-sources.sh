@@ -67,20 +67,23 @@ mv "$SWIFT_SNAPSHOT_NAME" swift
 ###
 # Install NodeJS
 ###
-echo "Installing node.js"
-cd /usr/share/src || exit
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-echo "Downloading NodeJS"
-NODE_VERSION="v4.5.0"
-NODE_FILE="node-$NODE_VERSION"
-wget "https://nodejs.org/dist/$NODE_VERSION/$NODE_FILE.tar.gz"
+# echo "Installing node.js"
+# cd /usr/share/src || exit
 
-tar zxf "$NODE_FILE".tar.gz
-rm "$NODE_FILE".tar.gz
-pushd "$NODE_FILE"
-echo "Installing NodeJS"
-./configure && make && sudo make install
-popd
-echo "Cleaning up after install"
-rm -r "$NODE_FILE"
+# echo "Downloading NodeJS"
+# NODE_VERSION="v4.5.0"
+# NODE_FILE="node-$NODE_VERSION"
+# wget "https://nodejs.org/dist/$NODE_VERSION/$NODE_FILE.tar.gz"
+
+# tar zxf "$NODE_FILE".tar.gz
+# rm "$NODE_FILE".tar.gz
+# pushd "$NODE_FILE"
+# echo "Installing NodeJS"
+# ./configure && make && sudo make install
+# popd
+# echo "Cleaning up after install"
+# rm -r "$NODE_FILE"
 
