@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
 ###
+# Permissions
+###
+echo "Setting up permissions for /usr/share"
+sudo chown -R "$USER":"$USER" /usr/share/src
+
+###
 # VIM Installation
 ###
 cd /usr/share/src || exit

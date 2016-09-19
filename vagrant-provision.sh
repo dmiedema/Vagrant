@@ -34,6 +34,6 @@ mv /usr/include/lua5.2/*.h /usr/include/lua5.2/include/
 echo "Creating /usr/share/src"
 mkdir -p /usr/share/src
 
-echo "Setting up permissions for /usr/share"
-chown -R "$USER" /usr/share/src
+# echo "Setting up permissions for /usr/share"
+# chown -R "$USER" /usr/share/src
 
