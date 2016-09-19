@@ -31,7 +31,7 @@ sudo make install
 echo "Installing Swift"
 cd /usr/share/src || exit
 
-SWIFT_DOWNLOAD_FOLDER="swift-3.0-PREVIEW-2"
+SWIFT_DOWNLOAD_FOLDER="swift-3.0-GM-CANDIDATE"
 SWIFT_VERSION=$(echo "$SWIFT_DOWNLOAD_FOLDER" | tr '[:upper:]' '[:lower:]')
 SWIFT_SNAPSHOT_NAME="$SWIFT_DOWNLOAD_FOLDER-ubuntu14.04"
 echo "Downloading Swift $SWIFT_VERSION"
@@ -65,7 +65,7 @@ echo "Installing node.js"
 cd /usr/share/src || exit
 
 echo "Downloading NodeJS"
-NODE_VERSION="v4.4.7"
+NODE_VERSION="v4.5.0"
 NODE_FILE="node-$NODE_VERSION"
 wget "https://nodejs.org/dist/$NODE_VERSION/$NODE_FILE.tar.gz"
 
