@@ -37,14 +37,14 @@ sudo make install
 echo "Installing Swift"
 cd /usr/share/src || exit
 
-SWIFT_DOWNLOAD_FOLDER="swift-3.0-GM-CANDIDATE"
+SWIFT_DOWNLOAD_FOLDER="swift-4.0.2-release"
 # SWIFT_VERSION=$(echo "$SWIFT_DOWNLOAD_FOLDER" | tr '[:upper:]' '[:lower:]')
 SWIFT_VERSION="$SWIFT_DOWNLOAD_FOLDER"
-SWIFT_SNAPSHOT_NAME="$SWIFT_DOWNLOAD_FOLDER-ubuntu14.04"
+SWIFT_SNAPSHOT_NAME="$SWIFT_DOWNLOAD_FOLDER-ubuntu16.04"
 echo "Downloading Swift $SWIFT_VERSION"
-wget "https://swift.org/builds/$SWIFT_VERSION/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz"
+wget "https://swift.org/builds/$SWIFT_VERSION/ubuntu1604/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz"
 echo "Downloading Signature"
-wget "https://swift.org/builds/$SWIFT_VERSION/ubuntu1404/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz.sig"
+wget "https://swift.org/builds/$SWIFT_VERSION/ubuntu1604/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz.sig"
 
 echo "Getting keys"
 wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
@@ -68,7 +68,7 @@ mv "$SWIFT_SNAPSHOT_NAME" swift
 ###
 # Install NodeJS
 ###
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # echo "Installing node.js"
