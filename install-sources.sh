@@ -40,7 +40,7 @@ cd /usr/share/src || exit
 SWIFT_DOWNLOAD_FOLDER="swift-4.0.2-RELEASE"
 SWIFT_VERSION=$(echo "$SWIFT_DOWNLOAD_FOLDER" | tr '[:upper:]' '[:lower:]')
 # SWIFT_VERSION="$SWIFT_DOWNLOAD_FOLDER"
-SWIFT_SNAPSHOT_NAME="$SWIFT_DOWNLOAD_FOLDER-ubuntu16.04"
+SWIFT_SNAPSHOT_NAME="$SWIFT_VERSION-ubuntu16.04"
 echo "Downloading Swift $SWIFT_VERSION"
 wget "https://swift.org/builds/$SWIFT_VERSION/ubuntu1604/$SWIFT_DOWNLOAD_FOLDER/$SWIFT_SNAPSHOT_NAME.tar.gz"
 echo "Downloading Signature"
